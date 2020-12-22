@@ -19,8 +19,12 @@ class JoinParty extends Component {
 
     handleChange = async (event) => {
         const target = event.target;
-        const value = target.value;
         const name = target.name;
+        let value = target.value.toUpperCase();
+
+        // enforce rules where all values are capitalized, no special characters, and no spaces
+        value = value.replace(/[^\w\s]/gi, "");
+        value = value.replace(/\s/g, '');
 
         this.setState({
             [name]: value
@@ -45,26 +49,28 @@ class JoinParty extends Component {
 
         if (!addedPlayer) {
             return (
-                <div>
-                    <form onSubmit={this.handleSubmit}>
-                        <label>
-                            Room Code:
+                <div className="centered">
+                    <form className="enterform">
+                        <div>
+                            <label for="fname">ROOM CODE
                         <br />
-    
-                            <input type="text" name="sessionId" value={this.state.sessionId} onChange={this.handleChange} />
-                        </label>
+                                <input onChange={this.handleChange} value={this.state.sessionId}
+                                    type="text" id="sessionId" name="sessionId"
+                                    placeholder="ENTER 4-LETTER CODE" maxLength="4" />
+                            </label>
+                        </div>
                         <br />
-                        <label>
-                            Name:
+                        <div>
+                            <label for="lname">NAME
                         <br />
-    
-                            <input type="text" name="name" value={this.state.name} onChange={this.handleChange} />
-                        </label>
-                        <br />
-                        <br />
-                        <input type="button" value="Join Party" onClick={this.addPlayer} />
+                                <input onChange={this.handleChange} value={this.state.name}
+                                    type="text" id="name" name="name"
+                                    placeholder="ENTER YOUR NAME" maxLength="10" />
+                            </label>
+                        </div>
+                        <button className="playbtn" type="submit" onClick={this.addPlayer}>PLAY</button>
                     </form>
-                </div>
+                </div> 
             );
         }
 

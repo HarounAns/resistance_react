@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { MobileContext } from './MobileContext';
+import Table from './Table';
 
 
 class WaitingArea extends Component {
@@ -18,35 +19,23 @@ class WaitingArea extends Component {
         if (!gameState.players) {
             return;
         }
-
-        let rows = [];
-
+        
+        let list = [];
         for (let player of gameState.players) {
-            rows.push(
-                <tr>
-                    <td>{player.name}</td>
-                </tr>
-            )
+            list.push(player.name);
         }
 
-        return (
-            <table className="waitingTable">
-                <tr>
-                    <th>Players</th>
-                </tr>
-                {rows}
-            </table>
-        )
+       return <Table list={list}/>
     }
 
     render() {
         const { isLeader } = this.props;
         const { gameState } = this.context;
         return (
-            <div>
-                <h1>{gameState.sessionId}</h1>
+            <div className="centered">
+                <h1 style={{color: "white"}}>{gameState.sessionId}</h1>
                 {this.table()}
-                {isLeader && <button onClick={() => console.log('gameState', gameState)}>Start Game</button>}
+                {isLeader && <button className="playbtn" type="submit" onClick={this.createGameState}>START GAME</button>}
             </div>
         );
     }

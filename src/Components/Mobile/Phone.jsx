@@ -61,9 +61,9 @@ class Phone extends Component {
         }
 
         return (
-            <div>
-                <button onClick={() => this.setState({ createParty: true })}>Create Party</button>
-                <button onClick={() => this.setState({ joinParty: true })}>Join Party</button>
+            <div className="centered">
+                <button style={{ width: '50vw', marginTop: '30vh' }} className="button6" onClick={() => this.setState({ createParty: true })}>Create Party</button>
+                <button style={{ width: '50vw',  marginTop: '5vh' }} className="button6" onClick={() => this.setState({ joinParty: true })}>Join Party</button>
             </div>
         );
     }

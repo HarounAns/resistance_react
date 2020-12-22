@@ -60,16 +60,17 @@ class CreateParty extends Component {
 
         if (!createdGameState) {
             return (
-                <div>
-                    <form>
-                        <label>
-                            Name:
-                            <input type="text" value={this.state.name} onChange={this.handleChange} />
-                        </label>
-                        <input type="button" value="Create Party" onClick={this.createGameState} />
+                <div className="centered">
+                    <form style={{ marginTop: '40vh' }} className="enterform">
+                        <div>
+                            <input onChange={this.handleChange} value={this.state.name}
+                                type="text" id="name" name="name"
+                                placeholder="ENTER YOUR NAME" maxLength="10" />
+                        </div>
+                        <button className="playbtn" type="submit" onClick={this.createGameState}>PLAY</button>
                     </form>
                 </div>
-            );
+            )
         }
 
         if (!gameState) {

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './App.css';
+import './App.scss';
 
 import Phone from './Components/Mobile/Phone';
 import { MobileProvider } from "./Components/Mobile/MobileContext";
