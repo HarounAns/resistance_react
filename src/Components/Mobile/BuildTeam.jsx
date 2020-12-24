@@ -13,9 +13,7 @@ export default class BuildTeam extends Component {
         return players[currentPlayerIndex].name === playerName;
     }
 
-
     render() {
-
         const { gameState } = this.context;
         if (!gameState) {
             return <Loading />
@@ -28,6 +26,6 @@ export default class BuildTeam extends Component {
                 </div>
             )
         }
-        return <div>is not captain</div>
+        return <div>Waiting for the captain to select team</div>
     }
 }

@@ -10,7 +10,7 @@ class WaitingArea extends Component {
         super(props);
 
         this.state = {
-            
+
         };
     }
 
@@ -19,14 +19,12 @@ class WaitingArea extends Component {
         if (!gameState.players) {
             return;
         }
-        
+
         let list = [];
         for (let player of gameState.players) {
             list.push(player.name);
         }
-        console.log("list");
-        console.log(list.length);
-       return <Table list={list}/>
+        return <Table list={list} />
     }
 
     startGame = () => {
@@ -42,16 +40,14 @@ class WaitingArea extends Component {
         const { isLeader } = this.props;
         const { gameState } = this.context;
         const { players } = gameState;
-        
+
         return (
             <div className="centered">
-                <h1 style={{color: "white"}}>{gameState.sessionId}</h1>
+                <h1 style={{ color: "white" }}>{gameState.sessionId}</h1>
                 {this.table()}
                 {isLeader && players && players.length >= 5 && <button className="playbtn" type="submit" onClick={this.startGame}>START GAME</button>}
-                {(players && players.length < 5) && <div className="pulsate" style={{ color: '#fff'}} >YOU NEED 5 PLAYERS TO START</div>  }
-        
-                {(!isLeader && players && players.length >= 5) && <div className="pulsate" style={{ color: '#fff' }} >WAITING FOR LEADER TO START GAME</div>  }
-                
+                {(players && players.length < 5) && <div className="pulsate" style={{ color: '#fff' }} >YOU NEED 5 PLAYERS TO START</div>}
+                {(!isLeader && players && players.length >= 5) && <div className="pulsate" style={{ color: '#fff' }} >WAITING FOR LEADER TO START GAME</div>}
             </div>
         );
     }

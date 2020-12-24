@@ -37,8 +37,6 @@ class CreateParty extends Component {
     }
 
     handleChange = async (event) => {
-        // await this.setState({ name: event.target.value });
-
         const target = event.target;
         const name = target.name;
         let value = target.value.toUpperCase();

@@ -17,7 +17,6 @@ export default class CaptainScreen extends Component {
         )
     }
     render() {
-
         const { gameState } = this.context;
         const { players, board, turn } = gameState;
         const numPlayersOnMission = board[turn];
@@ -25,7 +24,7 @@ export default class CaptainScreen extends Component {
         return (
             <div>
                 pick {numPlayersOnMission} to go on the mission
-                { this.createListGroup()}
+                { this.createListGroup() }
             </div>
         )
     }
