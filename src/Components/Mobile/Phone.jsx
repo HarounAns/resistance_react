@@ -3,7 +3,8 @@ import JoinParty from './JoinParty';
 import CreateParty from './CreateParty';
 import Sockette from 'sockette';
 import { MobileContext } from './MobileContext';
-
+import StateMachine from './StateMachine';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 class Phone extends Component {
     static contextType = MobileContext;
@@ -52,6 +53,12 @@ class Phone extends Component {
 
     render() {
         const { joinParty, createParty } = this.state;
+        const { gameState } = this.context;
+
+        if (gameState && gameState.allPlayersJoined) {
+            return <StateMachine />
+        }
+
         if (joinParty) {
             return <JoinParty />
         }
@@ -63,7 +70,8 @@ class Phone extends Component {
         return (
             <div className="centered">
                 <button style={{ width: '50vw', marginTop: '30vh' }} className="button6" onClick={() => this.setState({ createParty: true })}>Create Party</button>
-                <button style={{ width: '50vw',  marginTop: '5vh' }} className="button6" onClick={() => this.setState({ joinParty: true })}>Join Party</button>
+                <button style={{ width: '50vw', marginTop: '5vh' }} className="button6" onClick={() => this.setState({ joinParty: true })}>Join Party</button>
+
             </div>
         );
     }

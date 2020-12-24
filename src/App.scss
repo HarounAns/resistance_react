@@ -8,7 +8,8 @@ html, body {
 }
 
 body {
-	font-size: 16px;
+  font-size: 16px;
+  color: #ffffff;
 	background-color: #eeeeee;
 	transform: translate3d(0,0,0);
 	background-image: url('./Images/Red-Hacker-Wallpaper.jpg');
@@ -80,4 +81,30 @@ input[type=text] {
     padding: 20px; 
     height: 15px;    
     text-align: center; 
+}
+
+.pulsate {
+  -webkit-animation: pulsate 3s ease-out;
+  -webkit-animation-iteration-count: infinite; 
+  opacity: 0.5;
+  font-size: 4vh;
+  font-weight: bold;
+}
+@keyframes pulsate {
+  0% { 
+      opacity: 0.5;
+      font-size: 2.3vh;
+  }
+  50% { 
+      opacity: 1.0;
+      font-size: 2.5vh;
+  }
+  100% { 
+    opacity: 0.5;
+    font-size: 2.3vh;
+  }
+}
+
+.light {
+	color: #ffc;
 }
