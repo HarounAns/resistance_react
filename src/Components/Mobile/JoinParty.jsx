@@ -41,6 +41,7 @@ class JoinParty extends Component {
 
         this.setState({ addedPlayer: true });
         this.context.setSessionId(sessionId);
+        this.context.setPlayerName(name);
     }
 
     render() {

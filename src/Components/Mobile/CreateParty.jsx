@@ -37,7 +37,17 @@ class CreateParty extends Component {
     }
 
     handleChange = async (event) => {
-        await this.setState({ name: event.target.value });
+        const target = event.target;
+        const name = target.name;
+        let value = target.value.toUpperCase();
+
+        // enforce rules where all values are capitalized, no special characters, and no spaces
+        value = value.replace(/[^\w\s]/gi, "");
+        value = value.replace(/\s/g, '');
+
+        this.setState({
+            [name]: value
+        }, () => console.log(this.state));
     }
 
     createGameState = () => {
@@ -52,6 +62,7 @@ class CreateParty extends Component {
         });
 
         this.setState({ createdGameState: true });
+        this.context.setPlayerName(this.state.name);
     }
 
     render() {
