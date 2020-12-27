@@ -16,6 +16,11 @@ body {
   background-size: 100vw 100vh;
 }
 
+.phone {
+  color: white;
+  text-align: center;
+}
+
 .waitingTable, table, th, td {
   border: 1px solid black;
   margin-bottom: 5%;
@@ -26,6 +31,7 @@ button.button6{
   padding: 0.7em 1.4em;
   margin: 0 0.3em 0.3em 0;
   border-radius: 0.15em;
+  font-size: 4.5vw;
   box-sizing: border-box;
   text-decoration: none;
   font-family:'Roboto',sans-serif;
