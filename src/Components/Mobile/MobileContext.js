@@ -8,7 +8,7 @@ const testGameState = {
         3,
         3
     ],
-    "currentPlayerIndex": 1,
+    "currentPlayerIndex": 4,
     "failedVoteCounter": 0,
     "missions": [
         null,
@@ -20,55 +20,67 @@ const testGameState = {
     "numPlayers": 5,
     "players": [
         {
-            "connectionId": "YB0OJfUSoAMCLIQ=",
-            "isSpy": true,
-            "name": "HAMZA"
-        },
-        {
-            "connectionId": null,
-            "isSpy": true,
-            "name": "IBRAHIM"
-        },
-        {
-            "connectionId": null,
+            "connectionId": "YESn0e43oAMCLyw=",
             "isSpy": false,
             "name": "HAROUN"
         },
         {
             "connectionId": null,
             "isSpy": false,
-            "name": "ZAINAB"
+            "name": "IBRAHIM"
         },
         {
             "connectionId": null,
             "isSpy": false,
-            "name": "ISMAIL"
+            "name": "DOMAIN"
+        },
+        {
+            "connectionId": null,
+            "isSpy": true,
+            "name": "DEV_DOMAIN"
+        },
+        {
+            "connectionId": null,
+            "isSpy": true,
+            "name": "1"
         }
     ],
     "rerender": true,
     "resistance": [
         "HAROUN",
-        "ZAINAB",
-        "ISMAIL"
+        "IBRAHIM",
+        "DOMAIN"
     ],
-    "sessionId": "EPWI",
+    "sessionId": "WVYV",
     "spies": [
-        "HAMZA",
-        "IBRAHIM"
+        "DEV_DOMAIN",
+        "1"
     ],
     "stateMachine": {
         "buildTeamState": {
-            "currentState": true
+
         },
         "conductMissionState": {
 
         },
-        "currentState": "buildTeamState",
+        "currentState": "voteState",
         "gameOverState": {
 
         },
         "voteState": {
-
+            "allPlayersVoted": false,
+            "currentState": true,
+            "team": [
+                "HAROUN",
+                "DOMAIN"
+            ],
+            "votes": {
+                "1": "R",
+                "DEV_DOMAIN": "R",
+                "DOMAIN": "R",
+                "HAROUN": "R",
+                "IBRAHIM": "A"
+            }
         }
     },
     "turn": 0
@@ -81,10 +93,10 @@ export const MobileProvider = ({
     children
 }) => {
     const [sessionId, setSessionId] = useState('');
-    const [gameState, setGameState] = useState(null);
+    // const [gameState, setGameState] = useState(null);
 
     // THIS LINE IS FOR DEBUGGING PURPOSES
-    // const [gameState, setGameState] = useState(testGameState);
+    const [gameState, setGameState] = useState(testGameState);
     const [ws, setWebsocket] = useState(null);
     const [playerName, setPlayerName] = useState('');
 
