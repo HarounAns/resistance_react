@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import { MobileContext } from './MobileContext';
 import BuildTeam from './BuildTeam';
+import VoteScreen from './VoteScreen';
+import ShowVoteScreen from './ShowVoteScreen';
 
 export default class StateMachine extends Component {
     static contextType = MobileContext;
@@ -24,9 +26,13 @@ export default class StateMachine extends Component {
 
         if (currentState === 'voteState') {
             return (
-                <div>
-                    Vote
-                </div>
+                <VoteScreen />
+            )
+        }
+
+        if (currentState === 'showVoteResultsState') {
+            return (
+                <ShowVoteScreen />
             )
         }
 

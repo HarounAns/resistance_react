@@ -5,8 +5,6 @@ import Sockette from 'sockette';
 import { MobileContext } from './MobileContext';
 import StateMachine from './StateMachine';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import VoteScreen from './VoteScreen';
-import ShowVoteScreen from './ShowVoteScreen';
 
 class Phone extends Component {
     static contextType = MobileContext;
@@ -56,8 +54,6 @@ class Phone extends Component {
     render() {
         const { joinParty, createParty } = this.state;
         const { gameState } = this.context;
-
-        return <ShowVoteScreen />
 
         if (gameState && gameState.allPlayersJoined) {
             return <StateMachine />
