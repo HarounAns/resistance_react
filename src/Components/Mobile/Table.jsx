@@ -17,22 +17,6 @@ class Table extends Component {
                 {rows}
             </div>
         )
-
-        // for (let elem of list) {
-        //     rows.push(
-        //         <tr key={elem}>
-        //             <td>{elem}</td>
-        //         </tr>
-        //     )
-        // }
-        // return (
-        // <table className="waitingTable">
-        //     <tr>
-        //         <th>Players</th>
-        //     </tr>
-        //     {rows}
-        // </table>
-        // )
     }
 }
 

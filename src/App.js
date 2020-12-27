@@ -26,7 +26,9 @@ class App extends Component {
     if (this.isMobile()) {
       return (
         <MobileProvider>
-          <Phone />
+          <div className="phone">
+            <Phone />
+          </div>
         </MobileProvider>
       )
     }
