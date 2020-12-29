@@ -21,7 +21,6 @@ export default class VoteConductMissionScreen extends Component {
                 </li>
             )
         }
-        // console.log(Object.keys(mission));
 
         return (
             <ul className="list-group" style={{ margin: '10px' }}>{listItems}</ul>
@@ -40,7 +39,6 @@ export default class VoteConductMissionScreen extends Component {
             playerName,
             success
         });
-        // this.setState({ loading: true });
     }
 
     createMissionButtons = () => {
@@ -75,7 +73,6 @@ export default class VoteConductMissionScreen extends Component {
         const { gameState, playerName } = this.context;
         const { stateMachine } = gameState;
         const { mission } = stateMachine.conductMissionState;
-
         const team = Object.keys(mission);
 
         return team.includes(playerName);
@@ -86,7 +83,6 @@ export default class VoteConductMissionScreen extends Component {
             <div>
                 {this.createListGroup()}
                 {this.createMissionButtons()}
-
             </div>
         )
     }

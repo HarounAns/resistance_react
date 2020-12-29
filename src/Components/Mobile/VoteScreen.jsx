@@ -20,9 +20,6 @@ export default class VoteScreen extends Component {
             )
         }
 
-        console.log("stateMachine");
-        console.log(votes);
-
         return (
             <ul className="list-group" style={{ margin: '10px' }}>{listItems}</ul>
         )
@@ -40,7 +37,6 @@ export default class VoteScreen extends Component {
             playerName,
             approve
         });
-        // this.setState({ loading: true });
     }
 
     createVoteButtons = () => {

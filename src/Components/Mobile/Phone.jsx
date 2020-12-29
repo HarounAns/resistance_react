@@ -57,7 +57,6 @@ class Phone extends Component {
         const { joinParty, createParty } = this.state;
         const { gameState } = this.context;
         
-        // return <VoteConductMissionScreen />
         if (gameState && gameState.allPlayersJoined) {
             return <StateMachine />
         }

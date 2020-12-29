@@ -10,10 +10,6 @@ export default class ShowVoteScreen extends Component {
         const { votes } = stateMachine.showVoteResultsState;
 
         let listItems = [];
-
-        console.log("gameState");
-        console.log(gameState);
-
         for (let player of players) {
             listItems.push(
                 <li className="list-group-item list-group-item-dark d-flex justify-content-between align-items-center">
@@ -22,9 +18,6 @@ export default class ShowVoteScreen extends Component {
                 </li>
             )
         }
-
-        console.log("stateMachine");
-        console.log(votes);
 
         return (
             <ul className="list-group" style={{ margin: '10px' }}>{listItems}</ul>
@@ -54,9 +47,6 @@ export default class ShowVoteScreen extends Component {
         }
 
         return <span style={{ fontSize: '10vw' }}>Team is Rejected</span>
-
-        // const msg = numSuccess > numFail ? <span style={{ fontSize: '10vw' }}>Team is Approved</span> : <span style={{ fontSize: '10vw' }}>Team is Rejected</span> 
-        // return msg;
     }
 
     render() {
