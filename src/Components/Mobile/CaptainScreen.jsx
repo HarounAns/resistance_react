@@ -65,7 +65,7 @@ export default class CaptainScreen extends Component {
     render() {
         const { activePlayers, loading } = this.state;
         const { gameState } = this.context;
-        const { players, board, turn } = gameState;
+        const { board, turn } = gameState;
 
         if (loading)
             return <Loading />
