@@ -7,9 +7,13 @@ export default class ShowVoteScreen extends Component {
     createListGroup = () => {
         const { gameState } = this.context;
         const { players, stateMachine } = gameState;
-        const { votes } = stateMachine.voteState;
+        const { votes } = stateMachine.showVoteResultsState;
 
         let listItems = [];
+
+        console.log("gameState");
+        console.log(gameState);
+
         for (let player of players) {
             listItems.push(
                 <li className="list-group-item list-group-item-dark d-flex justify-content-between align-items-center">
@@ -30,16 +34,29 @@ export default class ShowVoteScreen extends Component {
     isTeamSuccessful = () => {
         const { gameState } = this.context;
         const { players, stateMachine } = gameState;
-        const { votes } = stateMachine.voteState;
+        const { votes } = stateMachine.showVoteResultsState;
         let numSuccess = 0;
         let numFail = 0;
 
+
         for (let player of players) {
-            { votes[player.name] === "A" ? ++numSuccess : ++numFail }
+            if (votes[player.name] === "A") {
+                numSuccess++;
+            }
+
+            else {
+                numFail++;
+            }
         }
 
-        { var msg = numSuccess > numFail ? <span style={{ fontSize: '10vw' }}>Team is Approved</span> : <span style={{ fontSize: '10vw' }}>Team is Rejected</span> }
-        return msg;
+        if (numSuccess > numFail) {
+            return <span style={{ fontSize: '10vw' }}>Team is Approved</span>
+        }
+
+        return <span style={{ fontSize: '10vw' }}>Team is Rejected</span>
+
+        // const msg = numSuccess > numFail ? <span style={{ fontSize: '10vw' }}>Team is Approved</span> : <span style={{ fontSize: '10vw' }}>Team is Rejected</span> 
+        // return msg;
     }
 
     render() {

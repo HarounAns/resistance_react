@@ -29,43 +29,64 @@ export default class VoteConductMissionScreen extends Component {
     }
 
     voteConductMission = success => {
-        const {sessionId, players } = this.context;
+        const { sessionId, playerName } = this.context;
         console.log("Voting on Conduct Mission for: " + sessionId);
         console.log("VOTE: ", success);
-        
+
         //Send Message
         this.context.ws.json({
             action: "conductMission",
             sessionId,
-
+            playerName,
             success
         });
         // this.setState({ loading: true });
     }
 
+    createMissionButtons = () => {
+        if (this.isPlayerOnMission()) {
+            return (
+                <div>
+                    <button type="button" className="btn sf-btn btn-outline-light" onClick={() => this.voteConductMission(true)} style={{ position: 'absolute', bottom: '10%', left: '15%' }} >
+                        <span style={{ fontSize: '10vw', fontWeight: 'bold' }}>
+                            <BsCheckCircle />
+                        </span>
+                        <br />
+                        <span style={{ textAlign: 'center', fontWeight: 'bold', fontSize: '4.5vw' }}>
+                            success
+                        </span>
+                    </button>
+    
+                    <button type="button" className="btn sf-btn btn-outline-light" onClick={() => this.voteConductMission(false)} style={{ position: 'absolute', bottom: '10%', right: '15%' }}>
+                        <span style={{ fontSize: '10vw', fontWeight: 'bold' }}>
+                            <BsXCircle />
+                        </span>
+                        <br />
+                        <span style={{ textAlign: 'center', fontWeight: 'bold', fontSize: '4.5vw', marginTop: '2vh' }}>
+                            fail
+                        </span>
+                    </button>
+                </div>
+            )
+        }
+    }
+
+    isPlayerOnMission = () => {
+        const { gameState, playerName } = this.context;
+        const { stateMachine } = gameState;
+        const { mission } = stateMachine.conductMissionState;
+
+        const team = Object.keys(mission);
+
+        return team.includes(playerName);
+    }
+
     render() {
         return (
             <div>
-                { this.createListGroup()}
-                <button type="button" className="btn sf-btn btn-outline-light" onClick={() => this.voteConductMission(true)} style={{ position: 'absolute', bottom: '10%', left: '15%' }} >
-                    <span style={{ fontSize: '10vw', fontWeight: 'bold' }}>
-                        <BsCheckCircle />
-                    </span>
-                    <br />
-                    <span style={{ textAlign: 'center', fontWeight: 'bold', fontSize: '4.5vw' }}>
-                        success
-                    </span>
-                </button>
+                {this.createListGroup()}
+                {this.createMissionButtons()}
 
-                <button type="button" className="btn sf-btn btn-outline-light" onClick={() => this.voteConductMission(false)} style={{ position: 'absolute', bottom: '10%', right: '15%' }}>
-                    <span style={{ fontSize: '10vw', fontWeight: 'bold' }}>
-                        <BsXCircle />
-                    </span>
-                    <br />
-                    <span style={{ textAlign: 'center', fontWeight: 'bold', fontSize: '4.5vw', marginTop: '2vh' }}>
-                        fail
-                    </span>
-                </button>
             </div>
         )
     }

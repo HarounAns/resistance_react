@@ -29,22 +29,23 @@ export default class VoteScreen extends Component {
     }
 
     voteTeam = approve => {
-        const sessionId = this.context.sessionId;
+        const { sessionId, playerName } = this.context;
         console.log("Voting on Conduct Mission for: " + sessionId);
         console.log("VOTE: ", approve);
+
         //Send Message
         this.context.ws.json({
             action: "vote",
             sessionId,
+            playerName,
             approve
         });
         // this.setState({ loading: true });
     }
 
-    render() {
+    createVoteButtons = () => {
         return (
             <div>
-                { this.createListGroup()}
                 <button type="button" className="btn sf-btn btn-outline-light" onClick={() => this.voteTeam(true)} style={{ position: 'absolute', bottom: '10%', left: '15%' }} >
                     <span style={{ fontSize: '10vw', fontWeight: 'bold' }}>
                         <BsCheckCircle />
@@ -64,6 +65,15 @@ export default class VoteScreen extends Component {
                         reject
                     </span>
                 </button>
+            </div>
+        )
+    }
+
+    render() {
+        return (
+            <div>
+                {this.createListGroup()}
+                {this.createVoteButtons()}
             </div>
         )
     }
