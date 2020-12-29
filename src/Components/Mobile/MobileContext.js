@@ -4,23 +4,11 @@ import { screens } from "./Screens";
 
 const testGameState = {
     "allPlayersJoined": true,
-    "board": [
-        2,
-        3,
-        2,
-        3,
-        3
+    "sessionId": "RERW",
+    "spies": [
+      "DOMAIN",
+      "DEV_DOMAIN"
     ],
-    "currentPlayerIndex": 1,
-    "failedVoteCounter": 0,
-    "missions": [
-        null,
-        null,
-        null,
-        null,
-        null
-    ],
-    "numPlayers": 5,
     "players": [
         {
             "connectionId": "YB0OJfUSoAMCLIQ=",
@@ -73,34 +61,46 @@ const testGameState = {
             "name": "ISMAIL2"
         }
     ],
-    "rerender": true,
+    "failedVoteCounter": 0,
     "resistance": [
-        "HAROUN",
-        "ZAINAB",
-        "ISMAIL"
+      "HAROUN",
+      "IBRAHIM",
+      "1"
     ],
-    "sessionId": "EPWI",
-    "spies": [
-        "HAMZA",
-        "IBRAHIM"
+    "board": [
+      2,
+      3,
+      2,
+      3,
+      3
+    ],
+    "currentPlayerIndex": 0,
+    "turn": 0,
+    "numPlayers": 5,
+    "missions": [
+      null,
+      null,
+      null,
+      null,
+      null
     ],
     "stateMachine": {
-        "buildTeamState": {
-            "currentState": true
-        },
-        "conductMissionState": {
-
-        },
-        "currentState": "buildTeamState",
-        "gameOverState": {
-
-        },
-        "voteState": {
-
+      "revealState": {},
+      "currentState": "conductMissionState",
+      "buildTeamState": {},
+      "voteState": {},
+      "showVoteResultsState": {},
+      "conductMissionState": {
+        "currentState": true,
+        "mission": {
+          "HAROUN": null,
+          "IBRAHIM": null,
         }
-    },
-    "turn": 0
-}
+      },
+      "showMissionResultsState": {},
+      "gameOverState": {}
+    }
+  }
 
 
 export const MobileContext = React.createContext();

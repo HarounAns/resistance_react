@@ -8,7 +8,6 @@ import { screens } from "./Screens";
 import beep from '../../Sounds/beep.mp3';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
-import CaptainScreen from './CaptainScreen';
 
 let beepAudio = new Audio(beep);
 beepAudio.volume = 0.5;
