@@ -1,78 +1,77 @@
 import React, { useState } from "react";
 const testGameState = {
     "allPlayersJoined": true,
-    "board": [
-        2,
-        3,
-        2,
-        3,
-        3
-    ],
-    "currentPlayerIndex": 1,
-    "failedVoteCounter": 0,
-    "missions": [
-        null,
-        null,
-        null,
-        null,
-        null
-    ],
-    "numPlayers": 5,
-    "players": [
-        {
-            "connectionId": "YB0OJfUSoAMCLIQ=",
-            "isSpy": true,
-            "name": "HAMZA"
-        },
-        {
-            "connectionId": null,
-            "isSpy": true,
-            "name": "IBRAHIM"
-        },
-        {
-            "connectionId": null,
-            "isSpy": false,
-            "name": "HAROUN"
-        },
-        {
-            "connectionId": null,
-            "isSpy": false,
-            "name": "ZAINAB"
-        },
-        {
-            "connectionId": null,
-            "isSpy": false,
-            "name": "ISMAIL"
-        }
-    ],
-    "rerender": true,
-    "resistance": [
-        "HAROUN",
-        "ZAINAB",
-        "ISMAIL"
-    ],
-    "sessionId": "EPWI",
+    "sessionId": "RERW",
     "spies": [
-        "HAMZA",
-        "IBRAHIM"
+      "DOMAIN",
+      "DEV_DOMAIN"
+    ],
+    "players": [
+      {
+        "name": "HAROUN",
+        "connectionId": "YPRC4feEoAMCJCw=",
+        "isSpy": false
+      },
+      {
+        "name": "IBRAHIM",
+        "connectionId": null,
+        "isSpy": false
+      },
+      {
+        "name": "DOMAIN",
+        "connectionId": null,
+        "isSpy": true
+      },
+      {
+        "name": "DEV_DOMAIN",
+        "isSpy": true
+      },
+      {
+        "name": "1",
+        "connectionId": null,
+        "isSpy": false
+      }
+    ],
+    "failedVoteCounter": 0,
+    "resistance": [
+      "HAROUN",
+      "IBRAHIM",
+      "1"
+    ],
+    "board": [
+      2,
+      3,
+      2,
+      3,
+      3
+    ],
+    "currentPlayerIndex": 0,
+    "turn": 0,
+    "numPlayers": 5,
+    "missions": [
+      null,
+      null,
+      null,
+      null,
+      null
     ],
     "stateMachine": {
-        "buildTeamState": {
-            "currentState": true
-        },
-        "conductMissionState": {
-
-        },
-        "currentState": "buildTeamState",
-        "gameOverState": {
-
-        },
-        "voteState": {
-
+      "revealState": {},
+      "currentState": "conductMissionState",
+      "buildTeamState": {},
+      "voteState": {},
+      "showVoteResultsState": {},
+      "conductMissionState": {
+        "currentState": true,
+        "mission": {
+          "HAROUN": null,
+          "IBRAHIM": null,
         }
-    },
-    "turn": 0
-}
+      },
+      "showMissionResultsState": {},
+      "gameOverState": {}
+    }
+  }
 
 
 export const MobileContext = React.createContext();

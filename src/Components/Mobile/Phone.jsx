@@ -5,7 +5,8 @@ import Sockette from 'sockette';
 import { MobileContext } from './MobileContext';
 import StateMachine from './StateMachine';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import RevealScreen from './RevealScreen';
+import ShowVoteScreen from './ShowVoteScreen';
+import VoteConductMissionScreen from './VoteConductMissionScreen';
 
 class Phone extends Component {
     static contextType = MobileContext;
