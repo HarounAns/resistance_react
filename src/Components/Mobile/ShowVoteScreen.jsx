@@ -12,9 +12,9 @@ export default class ShowVoteScreen extends Component {
         let listItems = [];
         for (let player of players) {
             listItems.push(
-                <li className="list-group-item d-flex justify-content-between align-items-center">
+                <li className="list-group-item list-group-item-dark d-flex justify-content-between align-items-center">
                     {player.name}
-                    {votes[player.name] === "A" ?  <span className="badge badge-pill badge-success" style={{ width:'24vw'}}> Approved 🗸</span> : <span className="badge badge-pill badge-danger" style={{ width:'24vw'}}>Rejected ✗</span>}
+                    {votes[player.name] === "A" ? <span className="badge badge-pill badge-success" style={{ width: '24vw' }}> Approved 🗸</span> : <span className="badge badge-pill badge-danger" style={{ width: '24vw' }}>Rejected ✗</span>}
                 </li>
             )
         }
@@ -27,10 +27,26 @@ export default class ShowVoteScreen extends Component {
         )
     }
 
+    isTeamSuccessful = () => {
+        const { gameState } = this.context;
+        const { players, stateMachine } = gameState;
+        const { votes } = stateMachine.voteState;
+        let numSuccess = 0;
+        let numFail = 0;
+
+        for (let player of players) {
+            { votes[player.name] === "A" ? ++numSuccess : ++numFail }
+        }
+
+        { var msg = numSuccess > numFail ? <span style={{ fontSize: '10vw' }}>Team is Approved</span> : <span style={{ fontSize: '10vw' }}>Team is Rejected</span> }
+        return msg;
+    }
+
     render() {
         return (
             <div>
-                { this.createListGroup()}
+                {this.createListGroup()}
+                {this.isTeamSuccessful()}
             </div>
         )
     }

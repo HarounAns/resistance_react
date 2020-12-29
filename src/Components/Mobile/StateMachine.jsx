@@ -3,6 +3,7 @@ import { MobileContext } from './MobileContext';
 import BuildTeam from './BuildTeam';
 import VoteScreen from './VoteScreen';
 import ShowVoteScreen from './ShowVoteScreen';
+import RevealScreen from './RevealScreen';
 
 export default class StateMachine extends Component {
     static contextType = MobileContext;
@@ -19,9 +20,12 @@ export default class StateMachine extends Component {
             )
         }
 
+        if (currentState === 'revealState') {
+            return <RevealScreen />      
+        }
+
         if (currentState === 'buildTeamState') {
-            return <BuildTeam />
-                
+            return <BuildTeam />      
         }
 
         if (currentState === 'voteState') {
