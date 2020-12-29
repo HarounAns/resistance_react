@@ -56,7 +56,6 @@ class Phone extends Component {
         const { gameState } = this.context;
 
         if (gameState && gameState.allPlayersJoined) {
-            // return <StateMachine />
             return <Game />
         }
 
