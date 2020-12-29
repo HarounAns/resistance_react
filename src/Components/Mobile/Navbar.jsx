@@ -1,10 +1,14 @@
 import React, { Component } from 'react';
 import { BsFillHouseDoorFill, BsFillAspectRatioFill } from "react-icons/bs";
 import { screens } from "./Screens";
+import { MobileContext } from './MobileContext';
+
 
 class Navbar extends Component {
+    static contextType = MobileContext;
+
     render() {
-        const { setScreen, screen } = this.props;
+        const { setScreen, screen } = this.context;
 
         return (
             <nav className="bottom-nav">

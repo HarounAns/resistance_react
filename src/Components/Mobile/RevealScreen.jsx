@@ -33,7 +33,7 @@ class RevealScreen extends Component {
     render() {
         if (this.isSpy()) {
             return (
-                <div className="centered">
+                <div className="centered" style={{marginTop: '10vh'}}>
                     <h1>You are a SPY</h1>
                     {this.spyList()}
                 </div>
@@ -41,7 +41,7 @@ class RevealScreen extends Component {
         }
 
         return (
-            <div className="centered">
+            <div className="centered" style={{marginTop: '10vh'}}>
                 <h1>You are RESISTANCE</h1>
             </div>
         );

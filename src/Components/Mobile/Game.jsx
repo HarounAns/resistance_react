@@ -3,32 +3,24 @@ import Navbar from './Navbar';
 import { screens } from "./Screens";
 import StateMachine from "./StateMachine";
 import Board from "./Board";
-
+import { MobileContext } from './MobileContext';
 
 class Game extends Component {
-    constructor(props) {
-        super(props);
-
-        this.state = {
-            screen: screens.home
-        };
-    }
-
-    setScreen = screen => {
-        this.setState({ screen });
-    }
+    static contextType = MobileContext;
 
     render() {
-        const { screen } = this.state;
+        const { screen, sessionId } = this.context;
+
         return (
             <div style={{ height: "100%" }}>
+                <span className="badge">{sessionId || "TEST"}</span>
                 {screen === screens.home &&
                     <StateMachine />
                 }
                 {screen === screens.board &&
                     <Board />
                 }
-                <Navbar setScreen={this.setScreen} screen={screen} />
+                <Navbar />
             </div>
         );
     }

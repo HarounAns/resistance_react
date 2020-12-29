@@ -1,4 +1,7 @@
 import React, { useState } from "react";
+import { screens } from "./Screens";
+
+
 const testGameState = {
     "allPlayersJoined": true,
     "board": [
@@ -81,12 +84,13 @@ export const MobileProvider = ({
     children
 }) => {
     const [sessionId, setSessionId] = useState('');
-    // const [gameState, setGameState] = useState(null);
+    const [gameState, setGameState] = useState(null);
 
     // THIS LINE IS FOR DEBUGGING PURPOSES
-    const [gameState, setGameState] = useState(testGameState);
+    // const [gameState, setGameState] = useState(testGameState);
     const [ws, setWebsocket] = useState(null);
     const [playerName, setPlayerName] = useState('');
+    const [screen, setScreen] = useState(screens.home);
 
     return (
         <MobileContext.Provider
@@ -98,7 +102,9 @@ export const MobileProvider = ({
                 ws,
                 setWebsocket,
                 playerName,
-                setPlayerName
+                setPlayerName,
+                screen,
+                setScreen
             }}
         >
             {children}

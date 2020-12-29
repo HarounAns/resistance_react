@@ -4,7 +4,13 @@ import CreateParty from './CreateParty';
 import Sockette from 'sockette';
 import { MobileContext } from './MobileContext';
 import Game from './Game';
+import { screens } from "./Screens";
+import beep from '../../Sounds/beep.mp3';
+
 import 'bootstrap/dist/css/bootstrap.min.css';
+
+let beepAudio = new Audio(beep);
+beepAudio.volume = 0.5;
 
 class Phone extends Component {
     static contextType = MobileContext;
@@ -16,6 +22,8 @@ class Phone extends Component {
             joinParty: false,
             createParty: false
         };
+
+        this.currentState = null;
     }
 
     componentDidMount = () => {
@@ -47,8 +55,36 @@ class Phone extends Component {
         if (event.data) {
             console.log('event.data');
             console.log(event.data);
-            this.context.setGameState(JSON.parse(event.data));
+            const gameState = JSON.parse(event.data);
+            this.context.setGameState(gameState);
+
+            if (this.currentStateChanged(gameState.stateMachine.currentState)) {
+                // change screen
+                this.context.setScreen(screens.home);
+
+                try {
+                    // vibrate, if possible, for 200ms
+                    navigator.vibrate(200);
+                } catch (error) {
+                    console.log('Could not vibrate');
+                }
+
+                // play sound if possible
+                try {
+                    beepAudio.play();
+                } catch (error) {
+                    console.log('Could not play beep');
+                }
+            }
         }
+    }
+
+    currentStateChanged = (currentState) => {
+        if (this.currentState === currentState) 
+            return false;
+
+        this.currentState = currentState;
+        return true;
     }
 
     render() {
