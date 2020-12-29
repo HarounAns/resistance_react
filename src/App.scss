@@ -100,15 +100,15 @@ input[type=text] {
 @keyframes pulsate {
   0% { 
       opacity: 0.5;
-      font-size: 2.3vh;
+      font-size: 4.0vw;
   }
   50% { 
       opacity: 1.0;
-      font-size: 2.5vh;
+      font-size: 4.3vw;
   }
   100% { 
     opacity: 0.5;
-    font-size: 2.3vh;
+    font-size: 4.0vw;
   }
 }
 
@@ -240,4 +240,14 @@ input[type=text] {
   align-items: center;
   position: fixed;
   bottom: 0;
+}
+
+.lg-dark {
+  background-color: #111111e1 !important;
+  color: white !important;
+  border: 1px solid rgba(255, 255, 255, 0.5) !important;
+}
+
+.lg-active {
+  border: 1px solid rgba(255, 255, 255, 0.5) !important;
 }

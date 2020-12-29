@@ -6,15 +6,22 @@ import CaptainScreen from './CaptainScreen';
 export default class BuildTeam extends Component {
     static contextType = MobileContext;
 
-    isCaptain = () => {
-        const { gameState, playerName } = this.context;
+    getCaptain = () => {
+        const { gameState } = this.context;
         const { players, currentPlayerIndex } = gameState;
 
-        return players[currentPlayerIndex].name === playerName;
+        return players[currentPlayerIndex].name
+    }
+
+    isCaptain = () => {
+        const { playerName } = this.context;
+        return this.getCaptain() === playerName;
     }
 
     render() {
         const { gameState } = this.context;
+        const captain = this.getCaptain();
+
         if (!gameState) {
             return <Loading />
         }
@@ -26,6 +33,8 @@ export default class BuildTeam extends Component {
                 </div>
             )
         }
-        return <div>Waiting for the captain to select team</div>
+         
+        return <div style={{marginTop: '15vh'}} className="pulsate">waiting for {captain} to select team</div>
+
     }
 }
