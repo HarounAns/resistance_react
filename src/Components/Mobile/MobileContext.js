@@ -46,6 +46,31 @@ const testGameState = {
             "connectionId": null,
             "isSpy": false,
             "name": "ISMAIL"
+        },
+        {
+            "connectionId": "YB0OJfUSoAMCLIQ=",
+            "isSpy": true,
+            "name": "HAMZA2"
+        },
+        {
+            "connectionId": null,
+            "isSpy": true,
+            "name": "IBRAHIM2"
+        },
+        {
+            "connectionId": null,
+            "isSpy": false,
+            "name": "HAROUN2"
+        },
+        {
+            "connectionId": null,
+            "isSpy": false,
+            "name": "ZAINAB2"
+        },
+        {
+            "connectionId": null,
+            "isSpy": false,
+            "name": "ISMAIL2"
         }
     ],
     "rerender": true,

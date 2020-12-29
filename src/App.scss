@@ -100,15 +100,15 @@ input[type=text] {
 @keyframes pulsate {
   0% { 
       opacity: 0.5;
-      font-size: 4.0vw;
+      font-size: 3.7vw;
   }
   50% { 
       opacity: 1.0;
-      font-size: 4.3vw;
+      font-size: 4.0vw;
   }
   100% { 
     opacity: 0.5;
-    font-size: 4.0vw;
+    font-size: 3.7vw;
   }
 }
 
@@ -207,7 +207,7 @@ input[type=text] {
   position: fixed;
   font-size: 2.2vw;
   right: 24vw;
-  top: 16vw;
+  top: 27.8vh;
 }
 
 .r_success {
@@ -240,6 +240,12 @@ input[type=text] {
   align-items: center;
   position: fixed;
   bottom: 0;
+}
+
+.lg {
+  height: 6vh !important;
+  font-size: 1.8vh;
+  padding-top: 1.5vh !important;
 }
 
 .lg-dark {

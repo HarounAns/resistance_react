@@ -18,7 +18,7 @@ export default class CaptainScreen extends Component {
         const { activePlayers } = this.state;
 
         const listItems = players.map((player) =>
-            <li className={activePlayers.includes(player.name) ? "list-group-item active lg-active" : "list-group-item list-group-item-dark lg-dark"}
+            <li className={activePlayers.includes(player.name) ? "list-group-item active lg lg-active" : "list-group-item list-group-item-dark lg lg-dark"}
                 onClick={() => this.toggleActivePlayer(player.name)}>
                 {player.name}
             </li>
@@ -72,7 +72,7 @@ export default class CaptainScreen extends Component {
 
         const numPlayersOnMission = board[turn];
         return (
-            <div className="centered" style={{marginTop: '15vh'}}>
+            <div className="centered" style={{marginTop: '20px'}}>
                 <span className="pulsate">pick {numPlayersOnMission} to go on the mission</span>
                 {this.createListGroup()}
                 {activePlayers.length === numPlayersOnMission && <button className="playbtn" type="button" onClick={this.chooseTeam}>CHOOSE TEAM</button>}
