@@ -121,3 +121,35 @@ input[type=text] {
   font-weight: bold;
   margin: 5vw;
 }
+
+/*card css for react-card-flip */
+.card {
+  height: 30vw;
+  width: 42vw;
+  margin: 1vw;
+  display: flex;
+  background:rgba(0, 0, 0, 0) !important;
+}
+
+.front {
+  // position: relative;
+  height: 30vw;
+  width: 42vw;
+  background:rgba(0,0,0,0.90);
+  border-radius: 5px;
+  border-style: solid;
+  border-color: white; 
+}
+
+.back {
+  height: 30vw;
+  width: 42vw;
+  background:rgba(0,0,0,0.99);
+  border-radius: 5px;
+  border-style: solid;
+  border-color: white;
+}
+
+.cardPack {
+  display: inline-block;
+}
