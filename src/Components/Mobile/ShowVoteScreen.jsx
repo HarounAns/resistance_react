@@ -30,8 +30,7 @@ export default class ShowVoteScreen extends Component {
         const { votes } = stateMachine.showVoteResultsState;
         let numSuccess = 0;
         let numFail = 0;
-
-
+        
         for (let player of players) {
             if (votes[player.name] === "A") {
                 numSuccess++;

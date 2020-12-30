@@ -39,7 +39,20 @@ export default class VoteConductMissionScreen extends Component {
         if (this.state.btn === btn)
             return;
 
-        const { sessionId, playerName } = this.context;
+        const { sessionId, playerName, gameState } = this.context;
+
+        // if resistance tries to vote fail set msg saying only spies can fail missions
+        if (gameState.resistance.includes(playerName) && btn === 'fail') {
+            this.setState({ spiesOnlyMsg: true },
+                () => {
+                    setTimeout(() => {
+                        this.setState({ spiesOnlyMsg: false });
+                    }, 3000);
+                }
+            )
+            return;
+        }
+
         console.log("Voting on Conduct Mission for: " + sessionId);
         console.log("VOTE: ", success);
 
@@ -64,8 +77,11 @@ export default class VoteConductMissionScreen extends Component {
 
     createMissionButtons = () => {
         if (this.isPlayerOnMission()) {
+            const { spiesOnlyMsg } = this.state;
+
             return (
                 <div>
+                    {spiesOnlyMsg && <span style={{ fontSize: '2vh', position: 'absolute', bottom: '34%', margin: 'auto', left: '0', right: '0' }}>Only Spies Can Fail Missions</span>}
                     <button type="button" className={this.getBtnCN('success')} onClick={() => this.voteConductMission(true, 'success')} style={{ position: 'absolute', bottom: '8%', left: '15%' }} >
                         <span style={{ fontSize: '10vw', fontWeight: 'bold' }}>
                             <BsCheckCircle />
