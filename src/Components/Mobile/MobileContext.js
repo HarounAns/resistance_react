@@ -76,17 +76,16 @@ const testGameState = {
   }
 }
 
-
 export const MobileContext = React.createContext();
 
 export const MobileProvider = ({
     children
 }) => {
     const [sessionId, setSessionId] = useState('');
-    // const [gameState, setGameState] = useState(null);
+    const [gameState, setGameState] = useState(null);
 
     // THIS LINE IS FOR DEBUGGING PURPOSES
-    const [gameState, setGameState] = useState(testGameState);
+    // const [gameState, setGameState] = useState(testGameState);
     const [ws, setWebsocket] = useState(null);
     const [playerName, setPlayerName] = useState('');
 
