@@ -13,7 +13,7 @@ class Game extends Component {
 
         return (
             <div style={{ height: "100%" }}>
-                <span className="badge">{sessionId || "TEST"}</span>
+                <span className="sessionBadge">{sessionId || "TEST"}</span>
                 {screen === screens.home &&
                     <StateMachine />
                 }

@@ -258,11 +258,13 @@ input[type=text] {
   border: 1px solid rgba(255, 255, 255, 0.5) !important;
 }
 
-.badge {
+.sessionBadge {
   color: white;
   position: absolute;
   top: 0%;
   left: 0%;
+  font-size: 2vh;
+  margin-left: 5px;
 }
 
 .sf-btn {
@@ -270,4 +272,16 @@ input[type=text] {
   width: 25vw;
   font-weight: bold;
   margin: 5vw;
+  background-color: #111111e1 !important;
+  border: 1px solid white !important;
+  color: white !important;
+}
+
+.sf-btn-active {
+  height: 25vh;
+  width: 25vw;
+  font-weight: bold;
+  margin: 5vw;
+  background-color: white !important;
+  border: 2px solid #333333 !important;
 }

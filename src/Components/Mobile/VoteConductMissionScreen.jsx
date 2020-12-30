@@ -5,6 +5,14 @@ import { BsXCircle, BsCheckCircle } from "react-icons/bs";
 export default class VoteConductMissionScreen extends Component {
     static contextType = MobileContext;
 
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            btn: null
+        };
+    }
+
     createListGroup = () => {
         const { gameState } = this.context;
         const { players, stateMachine } = gameState;
@@ -15,7 +23,7 @@ export default class VoteConductMissionScreen extends Component {
         let listItems = [];
         for (let player of players) {
             listItems.push(
-                <li className="list-group-item list-group-item-dark d-flex justify-content-between align-items-center">
+                <li className="list-group-item list-group-item-dark d-flex justify-content-between align-items-center lg lg-dark">
                     {player.name}
                     {team.includes(player.name) && <span className="badge badge-dark ">ON TEAM</span>}
                 </li>
@@ -27,7 +35,10 @@ export default class VoteConductMissionScreen extends Component {
         )
     }
 
-    voteConductMission = success => {
+    voteConductMission = (success, btn) => {
+        if (this.state.btn === btn)
+            return;
+
         const { sessionId, playerName } = this.context;
         console.log("Voting on Conduct Mission for: " + sessionId);
         console.log("VOTE: ", success);
@@ -39,13 +50,23 @@ export default class VoteConductMissionScreen extends Component {
             playerName,
             success
         });
+
+        this.setState({ btn });
+    }
+
+    getBtnCN = (btn) => {
+        if (this.state.btn === btn) {
+            return "btn sf-btn-active";
+        }
+
+        return "btn sf-btn"
     }
 
     createMissionButtons = () => {
         if (this.isPlayerOnMission()) {
             return (
                 <div>
-                    <button type="button" className="btn sf-btn btn-outline-light" onClick={() => this.voteConductMission(true)} style={{ position: 'absolute', bottom: '10%', left: '15%' }} >
+                    <button type="button" className={this.getBtnCN('success')} onClick={() => this.voteConductMission(true, 'success')} style={{ position: 'absolute', bottom: '8%', left: '15%' }} >
                         <span style={{ fontSize: '10vw', fontWeight: 'bold' }}>
                             <BsCheckCircle />
                         </span>
@@ -54,8 +75,8 @@ export default class VoteConductMissionScreen extends Component {
                             success
                         </span>
                     </button>
-    
-                    <button type="button" className="btn sf-btn btn-outline-light" onClick={() => this.voteConductMission(false)} style={{ position: 'absolute', bottom: '10%', right: '15%' }}>
+
+                    <button type="button" className={this.getBtnCN('fail')} onClick={() => this.voteConductMission(false, 'fail')} style={{ position: 'absolute', bottom: '8%', right: '15%' }}>
                         <span style={{ fontSize: '10vw', fontWeight: 'bold' }}>
                             <BsXCircle />
                         </span>
@@ -80,7 +101,7 @@ export default class VoteConductMissionScreen extends Component {
 
     render() {
         return (
-            <div>
+            <div style={{ marginTop: '3vh' }}>
                 {this.createListGroup()}
                 {this.createMissionButtons()}
             </div>

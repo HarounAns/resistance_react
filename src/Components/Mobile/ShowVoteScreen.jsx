@@ -12,7 +12,7 @@ export default class ShowVoteScreen extends Component {
         let listItems = [];
         for (let player of players) {
             listItems.push(
-                <li className="list-group-item list-group-item-dark d-flex justify-content-between align-items-center">
+                <li className="list-group-item list-group-item-dark d-flex justify-content-between align-items-center lg lg-dark">
                     {player.name}
                     {votes[player.name] === "A" ? <span className="badge badge-pill badge-success" style={{ width: '24vw' }}> Approved 🗸</span> : <span className="badge badge-pill badge-danger" style={{ width: '24vw' }}>Rejected ✗</span>}
                 </li>
@@ -51,7 +51,7 @@ export default class ShowVoteScreen extends Component {
 
     render() {
         return (
-            <div>
+            <div style={{ marginTop: '3vh' }}>
                 {this.createListGroup()}
                 {this.isTeamSuccessful()}
             </div>

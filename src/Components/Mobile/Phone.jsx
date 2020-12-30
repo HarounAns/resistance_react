@@ -32,11 +32,7 @@ class Phone extends Component {
             {
                 timeout: 300e3, // 5 mins
                 maxAttempts: 1,
-                onopen: e => {
-                    console.log("connected:", e);
-                    // this.setState({socketDisconnected: false});
-                    // this.setupJoinRoom();
-                },
+                onopen: e => console.log("connected:", e),
                 onmessage: e => this.handleMessage(e),
                 onreconnect: e => console.log("Reconnecting...", e),
                 onmaximum: e => console.log("Stop Attempting!", e),

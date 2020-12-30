@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { screens } from "./Screens";
 
-
 const testGameState = {
     "allPlayersJoined": true,
     "sessionId": "RERW",
