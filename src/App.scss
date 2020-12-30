@@ -122,13 +122,13 @@ input[type=text] {
   margin: 5vw;
 }
 
-
 /*card css for react-card-flip */
 .card {
   height: 30vw;
   width: 42vw;
   margin: 1vw;
   display: flex;
+  background:rgba(0, 0, 0, 0) !important;
 }
 
 .front {
@@ -138,8 +138,7 @@ input[type=text] {
   background:rgba(0,0,0,0.90);
   border-radius: 5px;
   border-style: solid;
-  border-color: white;
-  
+  border-color: white; 
 }
 
 .back {

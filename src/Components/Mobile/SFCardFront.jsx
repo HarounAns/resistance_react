@@ -2,10 +2,8 @@ import React, { Component } from 'react'
 import { BsXCircle, BsCheckCircle } from "react-icons/bs";
 
 export default class SFCardFront extends Component {
-
     createFront = () => {
         const { missionVote } = this.props;
-        console.log("FROM FRONT: " + missionVote);
 
         if (missionVote === 'S') {
             return (
@@ -31,7 +29,7 @@ export default class SFCardFront extends Component {
     render() {
         return (
             <div>
-                { this.createFront()}
+                {this.createFront()}
             </div>
         )
     }

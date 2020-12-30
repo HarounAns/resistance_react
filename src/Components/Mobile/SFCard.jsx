@@ -14,13 +14,11 @@ export default class SFCard extends Component {
     render() {
         const { isFlipped, missionVote } = this.props;
         return (
-                // NOTE: In-line styling is necessary to remove white background, reason: unknown
-                <div className="card" style={{background:'rgba(0, 0, 0, 0)'}}>
+                <div className="card">
                     <ReactCardFlip isFlipped={isFlipped} flipDirection="vertical">
                         <div>
                             <SFCardBack />
                         </div>
-
                         <div>
                             <SFCardFront missionVote = {missionVote} />
                         </div>
