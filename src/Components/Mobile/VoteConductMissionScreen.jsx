@@ -25,7 +25,7 @@ export default class VoteConductMissionScreen extends Component {
             listItems.push(
                 <li className="list-group-item list-group-item-dark d-flex justify-content-between align-items-center lg lg-dark">
                     {player.name}
-                    {team.includes(player.name) && <span className="badge badge-dark ">ON TEAM</span>}
+                    {team.includes(player.name) && <span className="badge badge-light ">ON TEAM</span>}
                 </li>
             )
         }

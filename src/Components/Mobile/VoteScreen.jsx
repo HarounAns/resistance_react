@@ -16,20 +16,25 @@ export default class VoteScreen extends Component {
     createListGroup = () => {
         const { gameState } = this.context;
         const { players, stateMachine } = gameState;
-        const { votes } = stateMachine.voteState;
+        const { votes, team } = stateMachine.voteState;
 
         let listItems = [];
         for (let player of players) {
             listItems.push(
-                <li className="list-group-item list-group-item-dark d-flex justify-content-between align-items-center lg  lg-dark">
-                    {player.name}
-                    {votes[player.name] && <span className="badge badge-dark">Voted 🗳️</span>}
+                <li className="list-group-item list-group-item-dark d-flex justify-content-between align-items-center lg lg-dark">
+                    <div>
+                        {player.name}
+                    </div>
+                    <div>
+                        {team.includes(player.name) && <span className="badge badge-light" style={{ marginLeft: '5px' }}>ON TEAM</span>}
+                        {votes[player.name] && <span className="badge badge-dark visible-lg-inline">Voted 🗳️</span>}
+                    </div>
                 </li>
             )
         }
 
         return (
-            <ul className="list-group" style={{ margin: '10px' }}>{listItems}</ul>
+            <ul className="list-group container" style={{ margin: '10px' }}>{listItems}</ul>
         )
     }
 
@@ -95,3 +100,18 @@ export default class VoteScreen extends Component {
         )
     }
 }
+
+
+// for (let player of players) {
+//     listItems.push(
+//         <li className="list-group-item list-group-item-dark d-flex justify-content-between align-items-center lg lg-dark">
+//             <div>
+//                 {player.name}
+//             </div>
+//             <div>
+//                 {votes[player.name] && <span className="badge badge-dark visible-lg-inline">Voted 🗳️</span>}
+//                 {team.includes(player.name) && <span className="badge badge-light" style={{marginLeft:'5px'}}>ON TEAM</span>}
+//             </div>
+//         </li>
+//     )
+// }
