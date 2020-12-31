@@ -14,7 +14,7 @@ export default class ShowVoteScreen extends Component {
             listItems.push(
                 <li className="list-group-item list-group-item-dark d-flex justify-content-between align-items-center lg lg-dark">
                     {player.name}
-                    {votes[player.name] === "A" ? <span className="badge badge-pill badge-success" style={{ width: '24vw' }}> Approved 🗸</span> : <span className="badge badge-pill badge-danger" style={{ width: '24vw' }}>Rejected ✗</span>}
+                    {votes[player.name] === "A" ? <span className="badge badge-pill badge-success" style={{ width: '24vw' }}> Approved ✔️</span> : <span className="badge badge-pill badge-danger" style={{ width: '24vw' }}>Rejected ✗</span>}
                 </li>
             )
         }
@@ -30,7 +30,7 @@ export default class ShowVoteScreen extends Component {
         const { votes } = stateMachine.showVoteResultsState;
         let numSuccess = 0;
         let numFail = 0;
-        
+
         for (let player of players) {
             if (votes[player.name] === "A") {
                 numSuccess++;

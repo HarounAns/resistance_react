@@ -73,8 +73,8 @@ export default class CaptainScreen extends Component {
         const numPlayersOnMission = board[turn];
         return (
             <div className="centered" style={{marginTop: '20px'}}>
-                <span className="pulsate">pick {numPlayersOnMission} to go on the mission</span>
                 {this.createListGroup()}
+                <span className="pulsate">pick {numPlayersOnMission} to go on the mission</span>
                 {activePlayers.length === numPlayersOnMission && <button className="playbtn" type="button" onClick={this.chooseTeam}>CHOOSE TEAM</button>}
             </div>
         )
