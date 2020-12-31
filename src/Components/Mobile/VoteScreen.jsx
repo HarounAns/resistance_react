@@ -9,7 +9,8 @@ export default class VoteScreen extends Component {
         super(props);
 
         this.state = {
-            btn: null
+            btn: null,
+            cannotRejectMsg: false
         };
     }
 
@@ -37,7 +38,19 @@ export default class VoteScreen extends Component {
         if (this.state.btn === btn)
             return;
 
-        const { sessionId, playerName } = this.context;
+        const { sessionId, playerName, gameState } = this.context;
+
+        if (gameState.failedVoteCounter >= 5 && btn === 'reject') {
+            this.setState({ cannotRejectMsg: true },
+                () => {
+                    setTimeout(() => {
+                        this.setState({ cannotRejectMsg: false });
+                    }, 3000);
+                }
+            )
+            return;
+        }
+
         console.log("Voting on Conduct Mission for: " + sessionId);
         console.log("VOTE: ", approve);
 
@@ -57,12 +70,20 @@ export default class VoteScreen extends Component {
             return "btn sf-btn-active";
         }
 
-        return "btn sf-btn"
+        const { gameState } = this.context;
+        if (gameState.failedVoteCounter >= 5 && btn === 'reject') {
+            return "btn sf-btn-disabled disabled";
+        }
+
+        return "btn sf-btn";
     }
 
     createVoteButtons = () => {
+        const { cannotRejectMsg } = this.state;
+
         return (
             <div>
+                {cannotRejectMsg && <span style={{ fontSize: '2vh', position: 'absolute', bottom: '34%', margin: 'auto', left: '0', right: '0' }}>5 Fails. Cannot Reject This Team</span>}
                 <button type="button" className={this.getBtnCN("approve")} style={{ position: 'absolute', bottom: '8%', left: '15%' }} onClick={() => this.voteTeam(true, "approve")} >
                     <span style={{ fontSize: '10vw', fontWeight: 'bold' }}>
                         <BsCheckCircle />

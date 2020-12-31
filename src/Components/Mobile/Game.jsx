@@ -3,6 +3,7 @@ import Navbar from './Navbar';
 import { screens } from "./Screens";
 import StateMachine from "./StateMachine";
 import Board from "./Board";
+import ActiveTable from "./ActiveTable";
 import { MobileContext } from './MobileContext';
 
 class Game extends Component {
@@ -19,6 +20,9 @@ class Game extends Component {
                 }
                 {screen === screens.board &&
                     <Board />
+                }
+                {screen === screens.table &&
+                    <ActiveTable />
                 }
                 <Navbar />
             </div>

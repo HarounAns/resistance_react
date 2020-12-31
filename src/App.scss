@@ -286,6 +286,16 @@ input[type=text] {
   border: 2px solid #333333 !important;
 }
 
+.sf-btn-disabled {
+  height: 23vh;
+  width: 25vw;
+  font-weight: bold;
+  margin: 5vw;
+  background-color: #111111e1 !important;
+  border: 1px solid red !important;
+  color: red !important;
+}
+
 /*card css for react-card-flip */
 .card {
   height: 29vw;
