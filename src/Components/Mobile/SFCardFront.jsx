@@ -8,7 +8,7 @@ export default class SFCardFront extends Component {
         if (missionVote === 'S') {
             return (
                 <div className='front'>
-                    <div style={{ backgroundColor: 'rgb(38, 60, 100)' }}>SUCCESS</div>
+                    <div style={{ backgroundColor: 'rgb(38, 60, 100)', fontSize: '2vh' }}>SUCCESS</div>
                     <span style={{ fontSize: '10vw', fontWeight: 'bold', color: 'rgb(38, 60, 100)' }}>
                         <BsCheckCircle />
                     </span>
@@ -18,7 +18,7 @@ export default class SFCardFront extends Component {
 
         return (
             <div className='front'>
-                <div style={{ backgroundColor: '#B22222' }}>FAIL</div>
+                <div style={{ backgroundColor: '#B22222',  fontSize: '2vh'  }}>FAIL</div>
                 <span style={{ fontSize: '10vw', fontWeight: 'bold', color: '#B22222' }}>
                     <BsXCircle />
                 </span>

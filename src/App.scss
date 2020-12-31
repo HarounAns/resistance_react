@@ -4,7 +4,8 @@ html, body {
 	position: relative;
 	height: 100%;
 	margin: 0;
-	padding: 0;
+  padding: 0;
+  overflow: hidden;
 }
 
 body {
@@ -99,15 +100,15 @@ input[type=text] {
 @keyframes pulsate {
   0% { 
       opacity: 0.5;
-      font-size: 2.3vh;
+      font-size: 3.7vw;
   }
   50% { 
       opacity: 1.0;
-      font-size: 2.5vh;
+      font-size: 4.0vw;
   }
   100% { 
     opacity: 0.5;
-    font-size: 2.3vh;
+    font-size: 3.7vw;
   }
 }
 
@@ -115,16 +116,179 @@ input[type=text] {
 	color: #ffc;
 }
 
+.board {
+  width: 90vw;
+  height: 60vw;
+  margin-left: 5vw;
+  margin-top: 20vh;
+  border:1px solid #fff;
+  background-color: #111111d0;
+}
+
+.numberCircle {
+  display: flex;
+  border-radius: 50%;
+  width: 16vw;
+  height: 16vw;
+  padding-top: 1vh;
+  padding-left: 4.5vw;
+  margin: 1vw;
+  border: 2px solid #fff;
+  color: #fff;
+  font: 10vw Arial, sans-serif;
+}
+
+.numberCircles {
+  width: '100%';
+  height: 16vw;
+  margin-top: 20%;
+  display: flex;
+}
+
+.numberCircle {
+  display: flex;
+  border-radius: 50%;
+  width: 16vw;
+  height: 16vw;
+  padding-top: 1vh;
+  padding-left: 4.5vw;
+  margin: 1vw;
+  border: 2px solid #fff;
+  color: #fff;
+  font: 10vw Arial, sans-serif;
+}
+
+.votetracker {
+  width: '100%';
+  height: 16vw;
+  margin-top: 18%;
+  display: flex;
+}
+
+.votetrackerCircle {
+  display: flex;
+  border-radius: 50%;
+  width: 8vw;
+  height: 8vw;
+  padding-top: 0.5vh;
+  padding-left: 2vw;
+  margin: 1vw;
+  border: 2px solid #fff;
+  color: #fff;
+  font: 5vw Arial, sans-serif;
+}
+
+.votetrackerCircleActive {
+  display: flex;
+  border-radius: 50%;
+  width: 10vw;
+  height: 10vw;
+  padding-top: 0.3vh;
+  padding-left: 2.5vw;
+  border: 2px solid #fff;
+  color: red;
+  font: 7vw Arial, sans-serif;
+}
+
+.numPlayerBadge {
+  float: right;
+  margin-right: 5px;
+  font-size: 3vw;
+}
+
+.votingDisabled {
+  float: left;
+  margin-left: 2px;
+  font-size: 3vw;
+  color: red
+}
+
+.twoFails {
+  position: fixed;
+  font-size: 2.2vw;
+  right: 24vw;
+  top: 27.8vh;
+}
+
+.r_success {
+  color: rgb(38, 60, 100);
+  border: 2px solid rgb(38, 79, 155);
+}
+
+.s_fail {
+  color: red;
+  border: 2px solid red;
+}
+
+.navbtn {
+  margin: 10px
+}
+
+.navbtn:active{
+  color:#AAAAAA !important;
+  border-color:#AAAAAA !important;
+}
+
+.bottom-nav {
+  background: rgba(0, 0, 0, 0.87);
+  width: 100vw;
+  height: 10vh;
+  box-shadow: 0 .4rem 1rem 0 rgba(55, 55, 55, .2);
+  padding: 1rem;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  position: fixed;
+  bottom: 0;
+}
+
+.lg {
+  height: 6vh !important;
+  font-size: 1.8vh;
+  padding-top: 1.5vh !important;
+}
+
+.lg-dark {
+  background-color: #111111e1 !important;
+  color: white !important;
+  border: 1px solid rgba(255, 255, 255, 0.5) !important;
+}
+
+.lg-active {
+  border: 1px solid rgba(255, 255, 255, 0.5) !important;
+}
+
+.sessionBadge {
+  color: white;
+  position: absolute;
+  top: 0%;
+  left: 0%;
+  font-size: 2vh;
+  margin-left: 5px;
+}
+
 .sf-btn {
-  height: 25vh;
+  height: 23vh;
   width: 25vw;
   font-weight: bold;
   margin: 5vw;
+  background-color: #111111e1 !important;
+  border: 1px solid white !important;
+  color: white !important;
+}
+
+.sf-btn-active {
+  height: 23vh;
+  width: 25vw;
+  font-weight: bold;
+  margin: 5vw;
+  background-color: white !important;
+  border: 2px solid #333333 !important;
 }
 
 /*card css for react-card-flip */
 .card {
-  height: 30vw;
+  height: 29vw;
   width: 42vw;
   margin: 1vw;
   display: flex;
@@ -133,7 +297,7 @@ input[type=text] {
 
 .front {
   // position: relative;
-  height: 30vw;
+  height: 26vw;
   width: 42vw;
   background:rgba(0,0,0,0.90);
   border-radius: 5px;
@@ -142,7 +306,7 @@ input[type=text] {
 }
 
 .back {
-  height: 30vw;
+  height: 26vw;
   width: 42vw;
   background:rgba(0,0,0,0.99);
   border-radius: 5px;

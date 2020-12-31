@@ -40,7 +40,6 @@ export default class ShowVoteConductMissionScreen extends Component {
 
         const { team } = this.state;
         for (let i = 0; i < team.length; i++) {
-            console.log("attempt: " + team[i]);
             cards.push(
                 <SFCard isFlipped={isFlipped[i]} missionVote={team[i]} />
             )
@@ -78,7 +77,7 @@ export default class ShowVoteConductMissionScreen extends Component {
 
         const { isSuccessful } = this.context.gameState.stateMachine.showMissionResultsState;
         const msg = isSuccessful ? 'SUCCESS' : 'FAILED';
-        return <span>MISSION {msg}</span>
+        return <span style={{fontWeight: 'bold'}}>MISSION {msg}</span>
     }
 
     render() {
