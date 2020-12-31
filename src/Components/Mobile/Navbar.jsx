@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { BsFillHouseDoorFill, BsFillAspectRatioFill, BsCardList } from "react-icons/bs";
+import { BsFillHouseDoorFill, BsFillAspectRatioFill, BsCardList, BsFillLockFill } from "react-icons/bs";
 import { screens } from "./Screens";
 import { MobileContext } from './MobileContext';
 
@@ -22,6 +22,9 @@ class Navbar extends Component {
                     </div>
                     <div className="navbtn" style={{ width: "20vw", color: screen !== screens.table && 'gray' }} onClick={() => setScreen(screens.table)}>
                         <BsCardList size={25} />
+                    </div>
+                    <div className="navbtn" style={{ width: "20vw", color: screen !== screens.card && 'gray' }} onClick={() => setScreen(screens.card)}>
+                        <BsFillLockFill size={25} />
                     </div>
                 </div>
             </nav>
