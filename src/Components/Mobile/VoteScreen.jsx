@@ -51,9 +51,6 @@ export default class VoteScreen extends Component {
             return;
         }
 
-        console.log("Voting on Conduct Mission for: " + sessionId);
-        console.log("VOTE: ", approve);
-
         //Send Message
         this.context.ws.json({
             action: "vote",

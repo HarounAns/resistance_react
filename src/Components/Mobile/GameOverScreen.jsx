@@ -78,8 +78,9 @@ class GameOverScreen extends Component {
 
         return <div>
             {winner === 'RESISTANCE' ? this.resistanceWins() : this.spiesWin()}
-            <button className="playbtn" type="submit" style={{ marginTop: '0' }}
-             onClick={() => window.location.reload()}>NEW GAME</button>
+            <button className="playbtn" type="submit" style={{ marginTop: '0' }} onClick={() => window.location.reload()}>
+                NEW GAME
+             </button>
         </div>
     }
 }
