@@ -5,6 +5,7 @@ import VoteScreen from './VoteScreen';
 import ShowVoteScreen from './ShowVoteScreen';
 import RevealScreen from './RevealScreen';
 import VoteConductMissionScreen from './VoteConductMissionScreen';
+import ShowVoteConductMissionScreen from './ShowVoteConductMissionScreen';
 
 export default class StateMachine extends Component {
     static contextType = MobileContext;
@@ -44,6 +45,12 @@ export default class StateMachine extends Component {
         if (currentState === 'conductMissionState') {
             return (
                 <VoteConductMissionScreen />
+            )
+        }
+
+        if (currentState === 'showMissionResultsState') {
+            return (
+                <ShowVoteConductMissionScreen />
             )
         }
 

@@ -3,6 +3,43 @@ import { screens } from "./Screens";
 
 const testGameState = {
   "allPlayersJoined": true,
+  "sessionId": "RERW",
+  "spies": [
+    "DOMAIN",
+    "DEV_DOMAIN"
+  ],
+  "players": [
+    {
+      "name": "HAROUN",
+      "connectionId": "YYDsdcFYIAMCEfw=",
+      "isSpy": false
+    },
+    {
+      "name": "IBRAHIM",
+      "connectionId": null,
+      "isSpy": false
+    },
+    {
+      "name": "DOMAIN",
+      "connectionId": null,
+      "isSpy": true
+    },
+    {
+      "name": "DEV_DOMAIN",
+      "isSpy": true
+    },
+    {
+      "name": "1",
+      "connectionId": null,
+      "isSpy": false
+    }
+  ],
+  "failedVoteCounter": 0,
+  "resistance": [
+    "HAROUN",
+    "IBRAHIM",
+    "1"
+  ],
   "board": [
     2,
     3,
@@ -10,8 +47,9 @@ const testGameState = {
     3,
     3
   ],
-  "currentPlayerIndex": 4,
-  "failedVoteCounter": 0,
+  "currentPlayerIndex": 0,
+  "turn": 0,
+  "numPlayers": 5,
   "missions": [
     null,
     null,
@@ -19,75 +57,26 @@ const testGameState = {
     null,
     null
   ],
-  "numPlayers": 5,
-  "players": [
-    {
-      "connectionId": "YESn0e43oAMCLyw=",
-      "isSpy": false,
-      "name": "HAROUN"
-    },
-    {
-      "connectionId": null,
-      "isSpy": false,
-      "name": "IBRAHIM"
-    },
-    {
-      "connectionId": null,
-      "isSpy": false,
-      "name": "DOMAIN"
-    },
-    {
-      "connectionId": null,
-      "isSpy": true,
-      "name": "DEV_DOMAIN"
-    },
-    {
-      "connectionId": null,
-      "isSpy": true,
-      "name": "1"
-    }
-  ],
-  "rerender": true,
-  "resistance": [
-    "HAROUN",
-    "IBRAHIM",
-    "DOMAIN"
-  ],
-  "sessionId": "WVYV",
-  "spies": [
-    "DEV_DOMAIN",
-    "1"
-  ],
   "stateMachine": {
-    "buildTeamState": {
-
-    },
-    "conductMissionState": {
-
-    },
-    "currentState": "voteState",
-    "gameOverState": {
-
-    },
-    "voteState": {
-      "allPlayersVoted": false,
+    "currentState": "showMissionResultsState",
+    "revealState": {},
+    "buildTeamState": {},
+    "voteState": {},
+    "showVoteResultsState": {},
+    "conductMissionState": {},
+    "showMissionResultsState": {
       "currentState": true,
-      "team": [
-        "HAROUN",
-        "DOMAIN"
-      ],
-      "votes": {
-        "1": "R",
-        "DEV_DOMAIN": "R",
-        "DOMAIN": null,
-        "HAROUN": "A",
-        "IBRAHIM": "A"
+      "mission": {
+        "HAROUN": "S",
+        "IBRAHIM": "S",
+        "t2": "S",
+        "t3": "S",
+        "t4": "F"
       }
-    }
-  },
-  "turn": 0
+    },
+    "gameOverState": {}
+  }
 }
-
 
 export const MobileContext = React.createContext();
 
