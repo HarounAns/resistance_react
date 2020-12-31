@@ -76,12 +76,14 @@ class GameOverScreen extends Component {
     render() {
         const { winner } = this.context.gameState;
 
-        return <div>
-            {winner === 'RESISTANCE' ? this.resistanceWins() : this.spiesWin()}
-            <button className="playbtn" type="submit" style={{ marginTop: '0' }} onClick={() => window.location.reload()}>
-                NEW GAME
-             </button>
-        </div>
+        return (
+            <div>
+                {winner === 'RESISTANCE' ? this.resistanceWins() : this.spiesWin()}
+                <button className="playbtn" type="submit" style={{ marginTop: '0' }} onClick={() => window.location.reload()}>
+                    NEW GAME
+                </button>
+            </div>
+        )
     }
 }
 
