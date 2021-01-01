@@ -41,6 +41,9 @@ class Phone extends Component {
             });
 
         this.context.setWebsocket(ws);
+
+        // hack to auto-hide address bar
+        window.scrollTo(0,1);
     }
 
     handleMessage = event => {
