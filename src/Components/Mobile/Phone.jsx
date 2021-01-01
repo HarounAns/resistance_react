@@ -133,8 +133,8 @@ class Phone extends Component {
 
         return (
             <div className="centered">
-                <button style={{ width: '50vw', marginTop: '30vh' }} onClick={this.createParty} className="button6" >Create Party</button>
-                <button style={{ width: '50vw', marginTop: '5vh' }} onClick={this.joinParty} className="button6"> Join Party</button>
+                <button className="button6" style={{ width: '50vw', marginTop: '30vh' }} onClick={this.createParty} >Create Party</button>
+                <button className="button6" style={{ width: '50vw', marginTop: '5vh' }} onClick={this.joinParty}> Join Party</button>
             </div>
         );
     }
