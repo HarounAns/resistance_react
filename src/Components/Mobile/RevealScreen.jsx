@@ -27,7 +27,7 @@ class RevealScreen extends Component {
             )
         }
         return (
-            <div>
+            <div style={{marginTop: '2vh'}}>
                 <span>Teammates:</span>
                 <ul className="list-group" style={{ margin: '12vw', textAlign: 'left', marginTop: '0px' }}>{rows}</ul>
             </div>
