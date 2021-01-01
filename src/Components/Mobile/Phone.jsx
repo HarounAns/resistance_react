@@ -43,6 +43,28 @@ class Phone extends Component {
         this.context.setWebsocket(ws);
     }
 
+    toggleFullScreen = () => {
+        var doc = window.document;
+        var docEl = doc.documentElement;
+
+        var requestFullScreen = docEl.requestFullscreen || docEl.mozRequestFullScreen || docEl.webkitRequestFullScreen || docEl.msRequestFullscreen;
+        var cancelFullScreen = doc.exitFullscreen || doc.mozCancelFullScreen || doc.webkitExitFullscreen || doc.msExitFullscreen;
+
+        if (!doc.fullscreenElement && !doc.mozFullScreenElement && !doc.webkitFullscreenElement && !doc.msFullscreenElement) {
+            console.log('making full screen');
+            try {
+                requestFullScreen.call(docEl);
+            } catch (error) {
+                console.error('Could not make full screen');
+                console.error(error);
+            }
+        }
+        else {
+            console.log('canceling full screen');
+            cancelFullScreen.call(doc);
+        }
+    }
+
     handleMessage = event => {
         console.log('handling message');
         console.log(event);
@@ -76,11 +98,21 @@ class Phone extends Component {
     }
 
     currentStateChanged = (currentState) => {
-        if (this.currentState === currentState) 
+        if (this.currentState === currentState)
             return false;
 
         this.currentState = currentState;
         return true;
+    }
+
+    createParty = () => {
+        this.setState({ createParty: true });
+        this.toggleFullScreen();
+    }
+
+    joinParty = () => {
+        this.setState({ joinParty: true })
+        this.toggleFullScreen();
     }
 
     render() {
@@ -101,8 +133,8 @@ class Phone extends Component {
 
         return (
             <div className="centered">
-                <button style={{ width: '50vw', marginTop: '30vh' }} className="button6" onClick={() => this.setState({ createParty: true })}>Create Party</button>
-                <button style={{ width: '50vw', marginTop: '5vh' }} className="button6" onClick={() => this.setState({ joinParty: true })}>Join Party</button>
+                <button className="button6" style={{ width: '50vw', marginTop: '30vh' }} onClick={this.createParty} >Create Party</button>
+                <button className="button6" style={{ width: '50vw', marginTop: '5vh' }} onClick={this.joinParty}> Join Party</button>
             </div>
         );
     }
