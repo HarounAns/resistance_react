@@ -11,9 +11,11 @@ html, body {
 body {
   font-size: 16px;
   color: #ffffff;
-	background-color: #eeeeee;
 	transform: translate3d(0,0,0);
-	background-image: url('./Images/Red-Hacker-Wallpaper.jpg');
+  background: linear-gradient(
+                     rgba(20,20,20, .5), 
+                     rgba(20,20,20, .5)),
+                     url('./Images/Red-Hacker-Wallpaper.jpg');
   background-size: 100vw 100vh;
 }
 
@@ -284,6 +286,16 @@ input[type=text] {
   margin: 5vw;
   background-color: white !important;
   border: 2px solid #333333 !important;
+}
+
+.sf-btn-disabled {
+  height: 23vh;
+  width: 25vw;
+  font-weight: bold;
+  margin: 5vw;
+  background-color: #111111e1 !important;
+  border: 1px solid red !important;
+  color: red !important;
 }
 
 /*card css for react-card-flip */

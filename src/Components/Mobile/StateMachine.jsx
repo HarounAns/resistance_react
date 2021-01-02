@@ -6,6 +6,7 @@ import ShowVoteScreen from './ShowVoteScreen';
 import RevealScreen from './RevealScreen';
 import VoteConductMissionScreen from './VoteConductMissionScreen';
 import ShowVoteConductMissionScreen from './ShowVoteConductMissionScreen';
+import GameOverScreen from './GameOverScreen';
 
 export default class StateMachine extends Component {
     static contextType = MobileContext;
@@ -15,37 +16,31 @@ export default class StateMachine extends Component {
         const { currentState } = gameState.stateMachine;
 
         if (currentState === 'gameOverState') {
-            return (
-                <div>
-                    Game Over
-                </div>
-            )
+            return <GameOverScreen />;
         }
 
         if (currentState === 'revealState') {
-            return <RevealScreen />      
+            return <RevealScreen />;
         }
 
         if (currentState === 'buildTeamState') {
-            return <BuildTeam />      
+            return <BuildTeam />;
         }
 
         if (currentState === 'voteState') {
-            return (
-                <VoteScreen />
-            )
+            return <VoteScreen />;
         }
 
         if (currentState === 'showVoteResultsState') {
-            return (
-                <ShowVoteScreen />
-            )
+            return <ShowVoteScreen />;
         }
 
         if (currentState === 'conductMissionState') {
-            return (
-                <VoteConductMissionScreen />
-            )
+            return <VoteConductMissionScreen />;
+        }
+
+        if (currentState === 'showMissionResultsState') {
+            return <ShowVoteConductMissionScreen />;
         }
 
         if (currentState === 'showMissionResultsState') {
@@ -57,7 +52,7 @@ export default class StateMachine extends Component {
         return (
             <div style={{ color: 'white' }}>
 
-                Hello { playerName }
+                Hello { playerName}
             </div >
         )
     }

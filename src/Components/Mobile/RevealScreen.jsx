@@ -15,17 +15,21 @@ class RevealScreen extends Component {
 
     spyList = () => {
         const { playerName, gameState } = this.context;
-        let teammates = [];
+        let rows = [];
         for (let player of gameState.spies) {
             if (player === playerName) {
                 continue;
             }
-            teammates.push(<p>➤ {player}</p>)
+            rows.push(
+                <li className="list-group-item list-group-item-dark lg lg-dark">
+                    {player}
+                </li>
+            )
         }
         return (
             <div>
-                <h5>Your Teammates:</h5>
-                {teammates}
+                <span>Teammates:</span>
+                <ul className="list-group" style={{ margin: '12vw', textAlign: 'left', marginTop: '0px' }}>{rows}</ul>
             </div>
         )
     }
@@ -33,16 +37,18 @@ class RevealScreen extends Component {
     render() {
         if (this.isSpy()) {
             return (
-                <div className="centered" style={{marginTop: '10vh'}}>
-                    <h1>You are a SPY</h1>
+                <div className="centered" style={{ marginTop: '10vh' }}>
+                    <h2>You are a </h2>
+                    <h1>SPY</h1>
                     {this.spyList()}
                 </div>
             )
         }
 
         return (
-            <div className="centered" style={{marginTop: '10vh'}}>
-                <h1>You are RESISTANCE</h1>
+            <div className="centered" style={{ marginTop: '10vh' }}>
+                <h2>You are </h2>
+                <h1>RESISTANCE</h1>
             </div>
         );
     }

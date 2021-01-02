@@ -3,7 +3,9 @@ import Navbar from './Navbar';
 import { screens } from "./Screens";
 import StateMachine from "./StateMachine";
 import Board from "./Board";
+import ActiveTable from "./ActiveTable";
 import { MobileContext } from './MobileContext';
+import ShowCard from './ShowCard';
 
 class Game extends Component {
     static contextType = MobileContext;
@@ -19,6 +21,12 @@ class Game extends Component {
                 }
                 {screen === screens.board &&
                     <Board />
+                }
+                {screen === screens.table &&
+                    <ActiveTable />
+                }
+                {screen === screens.card &&
+                    <ShowCard />
                 }
                 <Navbar />
             </div>
