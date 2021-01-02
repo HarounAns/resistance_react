@@ -43,6 +43,12 @@ export default class StateMachine extends Component {
             return <ShowVoteConductMissionScreen />;
         }
 
+        if (currentState === 'showMissionResultsState') {
+            return (
+                <ShowVoteConductMissionScreen />
+            )
+        }
+
         return (
             <div style={{ color: 'white' }}>
 

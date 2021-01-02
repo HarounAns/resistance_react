@@ -58,7 +58,7 @@ const testGameState = {
     null
   ],
   "stateMachine": {
-    "currentState": "revealState",
+    "currentState": "showMissionResultsState",
     "revealState": {},
     "buildTeamState": {},
     "voteState": {},
