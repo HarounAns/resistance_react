@@ -30,8 +30,8 @@ class Phone extends Component {
         // initiate socket connection
         let ws = new Sockette('wss://n2rlgnyw6h.execute-api.us-east-1.amazonaws.com/dev',
             {
-                timeout: 300e3, // 5 mins
-                maxAttempts: 1,
+                timeout: 1000, // 1 second
+                maxAttempts: 50,
                 onopen: e => console.log("connected:", e),
                 onmessage: e => this.handleMessage(e),
                 onreconnect: e => console.log("Reconnecting...", e),
