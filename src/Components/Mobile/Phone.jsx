@@ -8,6 +8,7 @@ import { screens } from "./Screens";
 import beep from '../../Sounds/beep.mp3';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
+import DisconnectScreen from './DisconnectScreen';
 
 let beepAudio = new Audio(beep);
 beepAudio.volume = 0.5;
@@ -20,7 +21,8 @@ class Phone extends Component {
 
         this.state = {
             joinParty: false,
-            createParty: false
+            createParty: false,
+            WSdisconnected: false
         };
 
         this.currentState = null;
@@ -36,7 +38,7 @@ class Phone extends Component {
                 onmessage: e => this.handleMessage(e),
                 onreconnect: e => console.log("Reconnecting...", e),
                 onmaximum: e => console.log("Stop Attempting!", e),
-                onclose: e => console.log("Closed!", e),
+                onclose: e => this.handleClose(e),
                 onerror: e => console.log("Error:", e)
             });
 
@@ -97,6 +99,13 @@ class Phone extends Component {
         }
     }
 
+    handleClose = event => {
+        console.log('handling close');
+        console.log(event);
+
+        this.setState({WSdisconnected: true});
+    }
+
     currentStateChanged = (currentState) => {
         if (this.currentState === currentState)
             return false;
@@ -116,8 +125,12 @@ class Phone extends Component {
     }
 
     render() {
-        const { joinParty, createParty } = this.state;
+        const { joinParty, createParty, WSdisconnected } = this.state;
         const { gameState } = this.context;
+
+        if (WSdisconnected) {
+            return <DisconnectScreen />
+        }
 
         if (gameState && gameState.allPlayersJoined) {
             return <Game />
