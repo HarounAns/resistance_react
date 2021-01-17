@@ -15,7 +15,7 @@ class ShowCard extends Component {
 
         if (!showCard) {
             return (
-                <div style={{ position: 'absolute', top: '70vh', left: '0', right: '0', margin: 'auto' }}>
+                <div style={{ position: 'absolute', bottom: '14vh', left: '0', right: '0', margin: 'auto' }}>
                     <button className="playbtn"  
                         onClick={() => this.setState({ showCard: true })}>
                             SHOW CARD
@@ -28,7 +28,7 @@ class ShowCard extends Component {
         return (
             <div>
                 <RevealScreen />
-                <div style={{ position: 'absolute', top: '70vh', left: '0', right: '0', margin: 'auto' }}>
+                <div style={{ position: 'absolute',  bottom: '19vh',  left: '0', right: '0', margin: 'auto' }}>
                     <button className="playbtn"  
                         onClick={() => this.setState({ showCard: false })}>
                             HIDE CARD
