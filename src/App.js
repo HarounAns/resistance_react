@@ -35,7 +35,7 @@ class App extends Component {
 
     return (
       <div>
-        Hi! This website is meant to be accessed by your phone
+        Hi! This website is meant to be accessed by your phone.
       </div>
     )
 
