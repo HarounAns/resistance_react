@@ -45,7 +45,6 @@ export default class StateMachine extends Component {
 
         return (
             <div style={{ color: 'white' }}>
-
                 Hello { playerName}
             </div >
         )

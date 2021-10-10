@@ -21,18 +21,28 @@ class JoinParty extends Component {
         const target = event.target;
         const name = target.name;
         let value = target.value.toUpperCase();
+        let forceAdd = false;
+
+        if (value.startsWith('*')) {
+            forceAdd = true;
+        }
 
         // enforce rules where all values are capitalized, no special characters, and no spaces
         value = value.replace(/[^\w\s]/gi, "");
         value = value.replace(/\s/g, '');
 
+        if (forceAdd) {
+            value = `*${value}`;
+        }
+
         this.setState({
-            [name]: value
+            [name]: value,
+            forceAdd
         }, () => console.log(this.state));
     }
 
     addPlayer = () => {
-        const { name, sessionId } = this.state;
+        const { name, sessionId, forceAdd } = this.state;
         this.context.ws.json({
             action: 'addPlayer',
             sessionId,
@@ -41,12 +51,18 @@ class JoinParty extends Component {
 
         this.setState({ addedPlayer: true });
         this.context.setSessionId(sessionId);
+
+        if (forceAdd) {
+            this.context.setPlayerName(name.substring(1));            
+            return;
+        }
+
         this.context.setPlayerName(name);
     }
 
     render() {
         const { gameState } = this.context;
-        const { addedPlayer } = this.state;
+        const { addedPlayer, forceAdd } = this.state;
 
         if (!addedPlayer) {
             return (
@@ -66,12 +82,12 @@ class JoinParty extends Component {
                         <br />
                                 <input onChange={this.handleChange} value={this.state.name}
                                     type="text" id="name" name="name"
-                                    placeholder="ENTER YOUR NAME" maxLength="10" />
+                                    placeholder="ENTER YOUR NAME" maxLength={forceAdd ? "11" : 10} />
                             </label>
                         </div>
                         <button className="playbtn" type="submit" onClick={this.addPlayer}>PLAY</button>
                     </form>
-                </div> 
+                </div>
             );
         }
 
