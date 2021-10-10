@@ -34,11 +34,11 @@ class Phone extends Component {
             {
                 timeout: 1000, // 1 second
                 maxAttempts: 50,
-                onopen: e => console.log("connected:", e),
+                onopen: this.handleOpen,
                 onmessage: e => this.handleMessage(e),
-                onreconnect: e => console.log("Reconnecting...", e),
+                onreconnect: e => console.log("reconnecting...", e),
                 onmaximum: e => console.log("Stop Attempting!", e),
-                onclose: e => this.handleClose(e),
+                // onclose: e => this.handleClose(e),
                 onerror: e => console.log("Error:", e)
             });
 
@@ -99,12 +99,27 @@ class Phone extends Component {
         }
     }
 
-    handleClose = event => {
-        console.log('handling close');
-        console.log(event);
+    handleOpen = (e) => {
+        console.log("connected:", e);
+        const { sessionId, playerName } = this.context;
 
-        this.setState({WSdisconnected: true});
+        if (!sessionId)
+            return;
+
+        // reconnecting so add player back
+        this.context.ws.json({
+            action: 'addPlayer',
+            sessionId,
+            playerName,
+        })
     }
+
+    // handleClose = event => {
+    //     console.log('handling close');
+    //     console.log(event);
+
+    //     this.setState({WSdisconnected: true});
+    // }
 
     currentStateChanged = (currentState) => {
         if (this.currentState === currentState)
