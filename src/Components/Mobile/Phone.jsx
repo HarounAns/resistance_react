@@ -76,8 +76,13 @@ class Phone extends Component {
             console.log('event.data');
             console.log(event.data);
             const gameState = JSON.parse(event.data);
-            this.context.setGameState(gameState);
 
+            if (!gameState.stateMachine) {
+                console.log('INVALID GAMESTATE');
+                return;
+            }
+
+            this.context.setGameState(gameState);
             if (this.currentStateChanged(gameState.stateMachine.currentState)) {
                 // change screen
                 this.context.setScreen(screens.home);
