@@ -115,16 +115,9 @@ class Phone extends Component {
         this.context.ws.json({
             action: 'addPlayer',
             sessionId,
-            playerName,
+            playerName: `*${playerName}`,
         })
     }
-
-    // handleClose = event => {
-    //     console.log('handling close');
-    //     console.log(event);
-
-    //     this.setState({WSdisconnected: true});
-    // }
 
     currentStateChanged = (currentState) => {
         if (this.currentState === currentState)
