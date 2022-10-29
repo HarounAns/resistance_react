@@ -35,7 +35,7 @@ export default class VoteScreen extends Component {
         }
 
         return (
-            <ul className="list-group" style={{ margin: '10px' }}>{listItems}</ul>
+            <ul className="list-group" style={{ margin: '15px' }}>{listItems}</ul>
         )
     }
 
@@ -91,7 +91,7 @@ export default class VoteScreen extends Component {
                         <BsCheckCircle />
                     </span>
                     <br />
-                    <span style={{ textAlign: 'center', fontWeight: 'bold', fontSize: '4.5vw' }}>
+                    <span style={{ textAlign: 'center', fontWeight: 'bold', fontSize: '3vw' }}>
                         approve
                     </span>
                 </button>
@@ -101,7 +101,7 @@ export default class VoteScreen extends Component {
                         <BsXCircle />
                     </span>
                     <br />
-                    <span style={{ textAlign: 'center', fontWeight: 'bold', fontSize: '4.5vw', marginTop: '2vh' }}>
+                    <span style={{ textAlign: 'center', fontWeight: 'bold', fontSize: '3vw', marginTop: '2vh' }}>
                         reject
                     </span>
                 </button>
