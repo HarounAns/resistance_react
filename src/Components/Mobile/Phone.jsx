@@ -136,12 +136,12 @@ class Phone extends Component {
 
     createParty = () => {
         this.setState({ createParty: true });
-        this.toggleFullScreen();
+        // this.toggleFullScreen();
     }
 
     joinParty = () => {
         this.setState({ joinParty: true })
-        this.toggleFullScreen();
+        // this.toggleFullScreen();
     }
 
     render() {
